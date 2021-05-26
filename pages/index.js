@@ -1,4 +1,5 @@
 import CustomHead from '../components/CustomHead'
+import Header from '../components/Header'
 
 const Home = () => {
 	return (
@@ -6,6 +7,7 @@ const Home = () => {
 			<CustomHead>
 				<title>Beauty Webshop</title>
 			</CustomHead>
+			<Header />
 			<h1>Starting the project</h1>
 		</div>
 	)
