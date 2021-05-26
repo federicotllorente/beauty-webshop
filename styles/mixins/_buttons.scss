@@ -1,0 +1,27 @@
+@mixin button_primary {
+    padding: 15px 40px;
+    background-color: $primaryColor;
+    color: $altLightColor;
+    border: none;
+}
+
+@mixin button_primary_light {
+    padding: 15px 40px;
+    background-color: transparent;
+    color: $primaryColor;
+    border: 2px solid $primaryColor;
+}
+
+@mixin button_dark {
+    padding: 15px 40px;
+    background-color: $darkColor;
+    color: $altLightColor;
+    border: none;
+}
+
+@mixin button_light {
+    padding: 15px 40px;
+    background-color: transparent;
+    color: $darkColor;
+    border: 2px solid $darkColor;
+}

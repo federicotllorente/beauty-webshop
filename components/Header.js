@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
+
+import useFetchCategories from '../hooks/useFetchCategories'
 
 import Logo from './icons/Logo'
 import SearchIcon from './icons/SearchIcon'
@@ -9,22 +11,12 @@ import CartIcon from './icons/CartIcon'
 const categoriesAPI = 'http://localhost:3000/api/categories'
 
 const Header = () => {
-	const [categories, setCategories] = useState([])
-	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState(null)
-
-	const fetchCategories = async api => {
-		setLoading(true)
-		const response = await fetch(api)
-		const data = await response.json()
-		try {
-			setLoading(false)
-			setCategories(data)
-		} catch (err) {
-			setLoading(false)
-			setError(err)
-		}
-	}
+	const {
+		categories,
+		loading,
+		error,
+		fetchCategories
+	} = useFetchCategories()
 
 	useEffect(() => {
 		fetchCategories(categoriesAPI)
@@ -56,10 +48,16 @@ const Header = () => {
 					</button>
 				</form>
 				<Link href="/">
-					<a><ProfileIcon /></a>
+					<a>
+						<ProfileIcon />
+						<p>Profile</p>
+					</a>
 				</Link>
 				<Link href="/">
-					<a><CartIcon /></a>
+					<a>
+						<CartIcon />
+						<p>Cart</p>
+					</a>
 				</Link>
 			</div>
 			<div className="header__categories">
