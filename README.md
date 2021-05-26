@@ -15,3 +15,7 @@ And then, enter to [http://localhost:3000](http://localhost:3000) to see the pro
 ## SVGR
 
 I used [SVGR Playground](https://react-svgr.com/playground/) for making React components by SVGs.
+
+## ESLint
+
+I used [ESLint](https://eslint.org/) to find syntax problems, but most importantly to enforce an specific code styling.
