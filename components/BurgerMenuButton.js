@@ -9,8 +9,12 @@ const BurgerMenuButton = ({ menuIsOpen, setMenuIsOpen }) => {
 		}
 	}
 
+	const buttonClassNames = menuIsOpen
+		? 'burger_menu_button burger_menu_button--open'
+		: 'burger_menu_button'
+
 	return (
-		<button className="burger_menu_button" onClick={handleButton}>
+		<button className={buttonClassNames} onClick={handleButton}>
 			<MenuButton />
 		</button>
 	)

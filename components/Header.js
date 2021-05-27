@@ -6,12 +6,16 @@ import Logo from './icons/Logo'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const Header = ({ categories, isMobile }) => {
+const Header = ({ categories, isMobile, router }) => {
 	return (
 		<header>
 			<div className="header__main">
-				<Logo className="header__main__logo" />
-				<SearchBar isMobile={isMobile} />
+				<Link href="/">
+					<a><Logo className="header__main__logo" /></a>
+				</Link>
+				{router.pathname !== '/' && (
+					<SearchBar isMobile={isMobile} />
+				)}
 				{!isMobile && (
 					<>
 						<Link href="/">

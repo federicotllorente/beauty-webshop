@@ -3,9 +3,13 @@ import Link from 'next/link'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const BurgerMenu = ({ categories }) => {
+const BurgerMenu = ({ categories, router }) => {
+	const menuClassNames = router.pathname === '/'
+		? 'burger_menu burger_menu--home'
+		: 'burger_menu'
+
 	return (
-		<div className="burger_menu">
+		<div className={menuClassNames}>
 			<div className="burger_menu__main">
 				<Link href="/">
 					<a>

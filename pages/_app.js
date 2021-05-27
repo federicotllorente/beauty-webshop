@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import useIsMobile from '../hooks/useIsMobile'
 import useFetchCategories from '../hooks/useFetchCategories'
@@ -14,6 +15,7 @@ const categoriesAPI = 'http://localhost:3000/api/categories'
 const MyApp = ({ Component, pageProps }) => {
 	const [menuIsOpen, setMenuIsOpen] = useState(false)
 	const isMobile = useIsMobile(425) // 425px is the breakpoint
+	const router = useRouter()
 
 	const {
 		categories,
@@ -42,7 +44,11 @@ const MyApp = ({ Component, pageProps }) => {
 			{isMobile && (
 				<>
 					{menuIsOpen && (
-						<BurgerMenu menuIsOpen={menuIsOpen} />
+						<BurgerMenu
+							menuIsOpen={menuIsOpen}
+							categories={categories}
+							router={router}
+						/>
 					)}
 					<BurgerMenuButton
 						menuIsOpen={menuIsOpen}
@@ -53,6 +59,7 @@ const MyApp = ({ Component, pageProps }) => {
 			<Header
 				categories={categories}
 				isMobile={isMobile}
+				router={router}
 			/>
 			<Component {...pageProps} />
 		</>
