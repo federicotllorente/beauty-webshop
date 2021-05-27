@@ -1,0 +1,56 @@
+.filters_modal {
+    width: 70vw;
+    height: 70vh;
+    padding: 20px;
+    position: fixed;
+    top: 15vh;
+    left: 15vw;
+    z-index: 5;
+    overflow-y: scroll;
+    background-color: $lightColor;
+    box-shadow: 0px 0px 20px $darkColorWOpacity;
+    div {
+        padding: 0 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+            @include button_dark;
+            padding: 10px 20px;
+            font-size: $mobileFontSize;
+        }
+    }
+    label {
+        padding: 0 0 10px;
+        display: flex;
+        align-items: center;
+        &:last-of-type {
+            padding: 0 0 20px;
+        }
+    }
+    input {
+        width: initial;
+        margin: 0 10px 0 0;
+    }
+}
+
+.filters_modal_button {
+    @include button_dark;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    margin: 20px 0 0;
+    font-size: $mobileFontSize;
+}
+
+@media (min-width: $breakpointMobile) {
+    .filters_modal {
+        div {
+            button {
+                font-size: $mainFontSize;
+            }
+        }
+    }
+    .filters_modal_button {
+        font-size: $mainFontSize;
+    }
+}
