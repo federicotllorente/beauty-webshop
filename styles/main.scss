@@ -44,7 +44,7 @@ $breakpointMobile: 425px;
 	box-sizing: border-box;
 }
 
-html, body {
+body {
 	padding: 0;
 	margin: 0;
 	font-family: $mainFontFamily;
@@ -65,6 +65,10 @@ html, body {
         font-family: $titleFontFamily;
         font-size: $midFontSize;
     }
+}
+
+main {
+    padding: 175px 20px 20px;
 }
 
 @media (min-width: $breakpointMobile) {

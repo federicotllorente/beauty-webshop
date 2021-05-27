@@ -10,7 +10,7 @@ const Header = ({ categories, isMobile }) => {
 	return (
 		<header>
 			<div className="header__main">
-				<Logo />
+				<Logo className="header__main__logo" />
 				<SearchBar />
 				{!isMobile && (
 					<>

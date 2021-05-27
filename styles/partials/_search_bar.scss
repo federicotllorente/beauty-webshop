@@ -2,6 +2,12 @@
     position: relative;
     input {
         padding: 15px 72px 15px 30px;
+        color: $lightColor;
+        border-color: $lightColorWOpacity;
+        &::placeholder {
+            color: $lightColor;
+            opacity: 0.6;
+        }
     }
     button {
         width: 30px;
