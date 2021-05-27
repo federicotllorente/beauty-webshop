@@ -1,8 +1,12 @@
+import Link from 'next/link'
+
 const Home = () => {
 	return (
-		<>
-			<img src="https://i.picsum.photos/id/656/1920/1080.jpg?hmac=AJzhh7aofr_Ob_abnp64ie6ZrC_uqMt5aJpM7rCAG8Q" />
-		</>
+		<main className="home">
+			<h1>Discover a whole new world</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac laoreet urna, a suscipit lacus. Ut quis nisl ex. Nunc condimentum arcu sem, at vehicula velit fringilla a.</p>
+			<Link href="/products">See all products</Link>
+		</main>
 	)
 }
 

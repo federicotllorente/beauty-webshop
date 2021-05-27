@@ -11,7 +11,7 @@ const Header = ({ categories, isMobile }) => {
 		<header>
 			<div className="header__main">
 				<Logo className="header__main__logo" />
-				<SearchBar />
+				<SearchBar isMobile={isMobile} />
 				{!isMobile && (
 					<>
 						<Link href="/">

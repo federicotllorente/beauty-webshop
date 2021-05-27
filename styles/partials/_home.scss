@@ -1,0 +1,30 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url(https://i.picsum.photos/id/656/1920/1080.jpg?hmac=AJzhh7aofr_Ob_abnp64ie6ZrC_uqMt5aJpM7rCAG8Q);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    h1 {
+        padding: 0 0 20px;
+        line-height: 1;
+    }
+    p {
+        padding: 0 0 20px;
+        // &:last-of-type {
+        //     padding: 0 0 35px;
+        // }
+    }
+    > a {
+        @include button_primary;
+    }
+}
+
+@media (min-width: $breakpointMobile) {
+    .home {
+        align-items: center;
+    }
+}

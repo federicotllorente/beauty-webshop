@@ -54,9 +54,7 @@ const MyApp = ({ Component, pageProps }) => {
 				categories={categories}
 				isMobile={isMobile}
 			/>
-			<main>
-				<Component {...pageProps} />
-			</main>
+			<Component {...pageProps} />
 		</>
 	)
 }
