@@ -1,0 +1,23 @@
+@mixin input_light {
+    width: -moz-available;
+    width: -webkit-fill-available;
+    padding: 15px 30px;
+    background-color: transparent;
+    color: $darkColor;
+    font-family: $mainFontFamily;
+    font-size: $mobileFontSize;
+    border: 2px solid $darkColor;
+    &::placeholder {
+        color: $midColor;
+    }
+}
+
+body input {
+    @include input_light;
+}
+
+@media (min-width: $breakpointMobile) {
+    body input {
+        font-size: $mainFontSize;
+    }
+}

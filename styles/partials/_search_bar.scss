@@ -1,0 +1,26 @@
+.search_bar {
+    position: relative;
+    input {
+        padding: 15px 72px 15px 30px;
+    }
+    button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 2;
+        top: 12px;
+        right: 12px;
+        background-color: transparent;
+        border: none;
+        svg {
+            width: 20px;
+            overflow: initial;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

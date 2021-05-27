@@ -67,29 +67,6 @@ html, body {
     }
 }
 
-.burger_menu_button {
-    @include button_dark;
-    width: 60px;
-    height: 60px;
-    margin: 0 20px 20px 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    border-radius: 9999px;
-    transition: .3s;
-    svg {
-        width: 20px;
-    }
-    &:hover {
-        cursor: pointer;
-        background-color: $midColor;
-    }
-}
-
 @media (min-width: $breakpointMobile) {
     body {
         font-size: $mainFontSize;
@@ -97,7 +74,9 @@ html, body {
 }
 
 // Components styles
+@import 'partials/_burger_menu';
 @import 'partials/_header';
+@import 'partials/_search_bar';
 @import 'partials/_footer';
 
 // Pages styles

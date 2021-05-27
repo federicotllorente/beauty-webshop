@@ -24,8 +24,6 @@ const Home = () => {
 		fetchCategories(categoriesAPI)
 	}, [])
 
-	const handleSearchBar = () => { }
-
 	error && (
 		<div>{error}</div>
 	)
@@ -52,7 +50,6 @@ const Home = () => {
 			)}
 			<Header
 				categories={categories}
-				handleSearchBar={handleSearchBar}
 				isMobile={isMobile}
 			/>
 			<h1>Starting the project</h1>

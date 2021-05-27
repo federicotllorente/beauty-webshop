@@ -1,26 +1,17 @@
 import Link from 'next/link'
 
+import SearchBar from './SearchBar'
+
 import Logo from './icons/Logo'
-import SearchIcon from './icons/SearchIcon'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const Header = ({ categories, handleSearchBar, isMobile }) => {
+const Header = ({ categories, isMobile }) => {
 	return (
 		<header>
 			<div className="header__main">
 				<Logo />
-				<form>
-					<input
-						type="text"
-						name="search"
-						placeholder="Search a product, a brand..."
-						onChange={handleSearchBar}
-					/>
-					<button>
-						<SearchIcon />
-					</button>
-				</form>
+				<SearchBar />
 				{!isMobile && (
 					<>
 						<Link href="/">
