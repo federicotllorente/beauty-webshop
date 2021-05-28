@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-const ProductCard = ({ id, name, brand, price, rating, imageURL, colors }) => {
+const ProductCard = ({ id, name, brand, price, rating, imageURL, colors, elementRef }) => {
 	const maxColorsToShow = 3
 	const remainingColorsToShow = colors.length - maxColorsToShow
 
 	return (
 		<Link href={`/${id}`}>
 			<a>
-				<div className="product_card">
+				<div className="product_card" ref={elementRef}>
 					<img src={imageURL} alt={`Product #${id} Thumbnail`} />
 					<h3>{name}</h3>
 					<p>By <strong>{brand}</strong></p>

@@ -1,32 +1,4 @@
-import { useState, useEffect } from 'react'
-import useFetchCategories from '../hooks/useFetchCategories'
-import useHandleFilters from '../hooks/useHandleFilters'
-
-const categoriesAPI = 'http://localhost:3000/api/categories'
-
-const FiltersModal = () => {
-	const [modalOpen, setModalOpen] = useState(false)
-	const { appliedFilters, handleFilterCheckbox } = useHandleFilters()
-
-	const {
-		categories,
-		loading,
-		error,
-		fetchCategories
-	} = useFetchCategories()
-
-	useEffect(() => {
-		fetchCategories(categoriesAPI)
-	}, [])
-
-	error && (
-		<div>{error}</div>
-	)
-
-	loading && (
-		<h2>Loading...</h2>
-	)
-
+const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterCheckbox, categories }) => {
 	return (
 		<>
 			{modalOpen && (
