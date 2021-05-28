@@ -1,0 +1,37 @@
+.product_card {
+    padding: 20px;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $lightColor;
+    box-shadow: 0px 0px 20px $darkColorWOpacity;
+    img {
+        width: 100%;
+        margin: 0 0 10px;
+    }
+    &__colors {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            width: 30px;
+            height: 30px;
+            margin: 0 -10px 0 0;
+            border: 2px solid $lightColor;
+            border-radius: 9999px;
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+        p {
+            margin: 0 0 0 5px;
+        }
+    }
+    &__price {
+        font-size: $mobileFontSize * 1.2;
+        font-weight: 600;
+    }
+}
