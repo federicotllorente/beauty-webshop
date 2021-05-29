@@ -65,6 +65,9 @@ body {
         font-family: $titleFontFamily;
         font-size: $midFontSize;
     }
+    img {
+        max-width: 90vw;
+    }
 }
 
 main {

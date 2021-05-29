@@ -7,6 +7,7 @@ import FiltersModal from '../../components/FiltersModal'
 import ProductCard from '../../components/ProductCard'
 
 const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
+// const productsAPI = 'http://localhost:3000/api/products'
 const filtersAPI = 'http://localhost:3000/api/filters'
 
 const ProductList = () => {
@@ -81,7 +82,7 @@ const ProductList = () => {
 							brand={product.brand}
 							price={`${product.price_sign} ${product.price} ${product.currency}`}
 							rating={product.rating}
-							imageURL={product.image_link}
+							imageURL={product.api_featured_image}
 							colors={product.product_colors}
 							elementRef={index == array.length - 1 ? elementRef : null}
 						/>

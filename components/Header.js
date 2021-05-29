@@ -1,4 +1,8 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import useIsMobile from '../hooks/useIsMobile'
+import useFetchFilters from '../hooks/useFetchFilters'
 
 import SearchBar from './SearchBar'
 
@@ -6,7 +10,36 @@ import Logo from './icons/Logo'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const Header = ({ filters, isMobile, router }) => {
+const filtersAPI = 'http://localhost:3000/api/filters'
+
+const Header = () => {
+	const isMobile = useIsMobile(425)
+	const router = useRouter()
+
+	const {
+		filters,
+		loadingFilters,
+		errorFilters,
+		fetchFilters
+	} = useFetchFilters()
+
+	useEffect(() => {
+		fetchFilters(filtersAPI)
+	}, [])
+
+	errorFilters && (
+		<main>
+			<h1>Oops! Something unexpected happened</h1>
+			<p>{errorFilters}</p>
+		</main>
+	)
+
+	loadingFilters && (
+		<main>
+			<h2>Loading...</h2>
+		</main>
+	)
+
 	return (
 		<header>
 			<div className="header__main">
@@ -35,7 +68,7 @@ const Header = ({ filters, isMobile, router }) => {
 			</div>
 			{!isMobile && (
 				<div className="header__categories">
-					{filters?.product_categories.map(category => (
+					{filters?.product_categories?.map(category => (
 						<Link key={category.id} href="/products">
 							{category.name}
 						</Link>
