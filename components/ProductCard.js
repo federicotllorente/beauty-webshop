@@ -4,11 +4,20 @@ const ProductCard = ({ id, name, brand, price, rating, imageURL, colors, element
 	const maxColorsToShow = 3
 	const remainingColorsToShow = colors.length - maxColorsToShow
 
+	const handleImageOnError = e => {
+		e.target.onError = null
+		e.target.src = 'not_found.gif'
+	}
+
 	return (
-		<Link href={`/${id}`}>
+		<Link href={`/products/${id}`}>
 			<a>
 				<div className="product_card" ref={elementRef}>
-					<img src={imageURL} alt={`Product #${id} Thumbnail`} />
+					<img
+						src={imageURL}
+						alt={`Product #${id} Thumbnail`}
+						onError={handleImageOnError}
+					/>
 					<h3>{name}</h3>
 					<p>By <strong>{brand}</strong></p>
 					<div className="product_card__colors">

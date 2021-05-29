@@ -6,7 +6,7 @@ import Logo from './icons/Logo'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const Header = ({ categories, isMobile, router }) => {
+const Header = ({ filters, isMobile, router }) => {
 	return (
 		<header>
 			<div className="header__main">
@@ -35,8 +35,8 @@ const Header = ({ categories, isMobile, router }) => {
 			</div>
 			{!isMobile && (
 				<div className="header__categories">
-					{categories?.map(category => (
-						<Link key={category.id} href={category.path}>
+					{filters?.product_categories.map(category => (
+						<Link key={category.id} href="/products">
 							{category.name}
 						</Link>
 					))}

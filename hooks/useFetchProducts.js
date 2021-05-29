@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 const useFetchProducts = () => {
 	const [products, setProducts] = useState([])
-	const [loadingProducts, setLoadingProducts] = useState(false)
+	const [loadingProducts, setLoadingProducts] = useState(true)
 	const [errorProducts, setErrorProducts] = useState(null)
 
 	const fetchProducts = async api => {
-		setLoadingProducts(true)
+		!loadingProducts && setLoadingProducts(true)
 		const response = await fetch(api)
 		const data = await response.json()
 		try {

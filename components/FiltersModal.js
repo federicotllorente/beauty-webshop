@@ -1,4 +1,4 @@
-const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterCheckbox, categories }) => {
+const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterCheckbox, filters }) => {
 	return (
 		<>
 			{modalOpen && (
@@ -7,7 +7,7 @@ const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterChe
 						<h3>Filters</h3>
 						<button onClick={() => setModalOpen(false)}>Close</button>
 					</div>
-					{categories?.map(category => (
+					{filters?.product_categories.map(category => (
 						<label key={category.id}>
 							<input
 								type="checkbox"
