@@ -8,8 +8,6 @@ import Header from '../../components/Header'
 import FiltersModal from '../../components/FiltersModal'
 import ProductCard from '../../components/ProductCard'
 
-const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
-
 const ProductList = ({ products }) => {
 	const [searchQuery, setSearchQuery] = useState('')
 	const isMobile = useIsMobile(425)
@@ -92,7 +90,7 @@ const ProductList = ({ products }) => {
 }
 
 export const getServerSideProps = async context => {
-	const response = await fetch(productsAPI)
+	const response = await fetch('http://makeup-api.herokuapp.com/api/v1/products.json')
 	if (response.ok) {
 		const products = await response.json()
 		return { props: { products } }
