@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+
+// import { UnexpectedError } from '../../components/ErrorMessages'
 import ProductGallery from '../../components/ProductGallery'
 import ProductInformation from '../../components/ProductInformation'
 
@@ -191,12 +193,7 @@ const ProductDetails = () => {
 
 	const finalRating = props.rating || generateRandomRating()
 
-	// errorProduct && (
-	// 	<main>
-	// 		<h1>Oops! Something unexpected happened</h1>
-	// 		<p>{errorProduct}</p>
-	// 	</main>
-	// )
+	// errorProduct && <UnexpectedError error={errorProduct} />
 
 	return (
 		<main className="product_details">

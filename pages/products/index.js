@@ -7,7 +7,7 @@ import useIsMobile from '../../hooks/useIsMobile'
 import FiltersModal from '../../components/FiltersModal'
 import ProductCard from '../../components/ProductCard'
 import { SearchError, UnexpectedError } from '../../components/ErrorMessages'
-import { Loader, LoaderPage } from '../../components/Loader'
+import { LoaderPage } from '../../components/Loader'
 
 // const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
 const productsAPI = 'http://localhost:3000/api/products'
@@ -43,15 +43,14 @@ const ProductList = () => {
 
 	errorProducts && <SearchError error={errorProducts} />
 	errorFilters && <UnexpectedError error={errorFilters} />
-	loadingFilters && <LoaderPage />
 
 	return (
-		<main className="product_list">
-			<h2>All products</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac laoreet urna, a suscipit lacus. Ut quis nisl ex. Nunc condimentum arcu sem, at vehicula velit fringilla a.</p>
-			{loadingProducts && <Loader />}
-			{!loadingProducts && (
-				<>
+		(loadingProducts || loadingFilters)
+			? <LoaderPage />
+			: (
+				<main className="product_list">
+					<h2>All products</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac laoreet urna, a suscipit lacus. Ut quis nisl ex. Nunc condimentum arcu sem, at vehicula velit fringilla a.</p>
 					<FiltersModal
 						modalOpen={modalOpen}
 						setModalOpen={setModalOpen}
@@ -77,9 +76,8 @@ const ProductList = () => {
 							)
 						})}
 					</div>
-				</>
-			)}
-		</main>
+				</main>
+			)
 	)
 }
 
