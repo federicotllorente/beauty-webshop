@@ -5,6 +5,8 @@ import useIsMobile from '../hooks/useIsMobile'
 import useFetchFilters from '../hooks/useFetchFilters'
 
 import SearchBar from './SearchBar'
+import { LoaderPage } from './Loader'
+import { UnexpectedError } from './ErrorMessages'
 
 import Logo from './icons/Logo'
 import ProfileIcon from './icons/ProfileIcon'
@@ -14,6 +16,7 @@ const filtersAPI = 'http://localhost:3000/api/filters'
 
 const Header = () => {
 	const isMobile = useIsMobile(425)
+	const isTablet = useIsMobile(800)
 	const router = useRouter()
 
 	const {
@@ -27,18 +30,8 @@ const Header = () => {
 		fetchFilters(filtersAPI)
 	}, [])
 
-	errorFilters && (
-		<main>
-			<h1>Oops! Something unexpected happened</h1>
-			<p>{errorFilters}</p>
-		</main>
-	)
-
-	loadingFilters && (
-		<main>
-			<h2>Loading...</h2>
-		</main>
-	)
+	errorFilters && <UnexpectedError error={errorFilters} />
+	loadingFilters && <LoaderPage />
 
 	return (
 		<header>
@@ -46,11 +39,11 @@ const Header = () => {
 				<Link href="/">
 					<a><Logo className="header__main__logo" /></a>
 				</Link>
-				{router.pathname !== '/' && (
+				{(!isTablet && router.pathname !== '/') && (
 					<SearchBar isMobile={isMobile} />
 				)}
 				{!isMobile && (
-					<>
+					<div className="header__main__buttons">
 						<Link href="/">
 							<a>
 								<ProfileIcon />
@@ -63,7 +56,10 @@ const Header = () => {
 								<p>Cart</p>
 							</a>
 						</Link>
-					</>
+					</div>
+				)}
+				{(isTablet && router.pathname !== '/') && (
+					<SearchBar isMobile={isMobile} />
 				)}
 			</div>
 			{!isMobile && (

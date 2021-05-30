@@ -9,5 +9,90 @@ header {
         .search_bar {
             margin: 10px 0 0;
         }
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media (min-width: $breakpointMobile) {
+    header {
+        a {
+            color: $lightColor;
+        }
+        .header__main {
+            display: flex;
+            align-items: center;
+            &__buttons {
+                a {
+                    margin: 0 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    svg {
+                        width: 30px;
+                    }
+                    p {
+                        padding: 5px 0 0;
+                    }
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                }
+            }
+            .search_bar {
+                width: -moz-available;
+                width: -webkit-fill-available;
+                margin: 0 20px;
+            }
+        }
+        .header__categories {
+            padding: 20px 0 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            a {
+                margin: 0 10px 0 0;
+                white-space: nowrap;
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpointMobile) and (max-width: $breakpointTablet) {
+    header {
+        .header__main {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            a {
+                &:first-of-type {
+                    margin: 0 20px 0 0;
+                }
+            }
+            .search_bar {
+                margin: 20px 0 0;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpointMobile) and (max-width: $breakpointMobileLarge) {
+    .header__main {
+        &__logo {
+            width: 250px;
+        }
+    }
+}
+
+@media (min-width: $breakpointMobileLarge) {
+    .header__main {
+        &__logo {
+            width: 300px;
+        }
     }
 }

@@ -5,6 +5,8 @@ import useHandleFilters from '../../hooks/useHandleFilters'
 
 import FiltersModal from '../../components/FiltersModal'
 import ProductCard from '../../components/ProductCard'
+import { SearchError, UnexpectedError } from '../../components/ErrorMessages'
+import { Loader, LoaderPage } from '../../components/Loader'
 
 // const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
 const productsAPI = 'http://localhost:3000/api/products'
@@ -39,24 +41,9 @@ const ProductList = () => {
 		fetchFilters(filtersAPI)
 	}, [])
 
-	errorProducts && (
-		<main>
-			<h1>Oops! We didn&apos;t find what you&apos;re looking for</h1>
-			<p>{errorProducts}</p>
-		</main>
-	)
-	errorFilters && (
-		<main>
-			<h1>Oops! Something unexpected happened</h1>
-			<p>{errorFilters}</p>
-		</main>
-	)
-
-	loadingFilters && (
-		<main>
-			<h2>Loading...</h2>
-		</main>
-	)
+	errorProducts && <SearchError error={errorProducts} />
+	errorFilters && <UnexpectedError error={errorFilters} />
+	loadingFilters && <LoaderPage />
 
 	return (
 		<main className="product_list">
@@ -69,9 +56,7 @@ const ProductList = () => {
 				handleFilterCheckbox={handleFilterCheckbox}
 				filters={filters}
 			/>
-			{loadingProducts && (
-				<h3>Loading products...</h3>
-			)}
+			{loadingProducts && <Loader />}
 			<div className="product_list__container">
 				{products?.slice(0, productsPerPage * currentPage).map((product, index, array) => {
 					return (

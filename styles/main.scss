@@ -27,9 +27,9 @@ $monospaceFontFamily: 'Fira Mono', monospace;
 
 // Breakpoints
 $breakpointMobile: 425px;
-// $breakpointMobileLarge: 530px;
+$breakpointMobileLarge: 530px;
 // $breakpointTabletSmall: 640px;
-// $breakpointTablet: 820px;
+$breakpointTablet: 800px;
 // $breakpointTabletLarge: 920px;
 // $breakpointDesktop: 1024px;
 
@@ -77,6 +77,15 @@ main {
 @media (min-width: $breakpointMobile) {
     body {
         font-size: $mainFontSize;
+    }
+    main {
+        padding: 235px 20px 20px;
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    main {
+        padding: 160px 20px 20px;
     }
 }
 

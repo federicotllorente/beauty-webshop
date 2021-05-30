@@ -4,5 +4,24 @@
     }
     &__container {
         padding: 30px 0 10px;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
     }
 }
+
+@media (min-width: $breakpointMobile) {
+    .product_list {
+        &__container {
+            grid-template-columns: auto auto;
+        }
+    }
+}
+
+// @media (min-width: $breakpointTablet) {
+//     .product_list {
+//         &__container {
+//             grid-template-columns: auto auto auto;
+//         }
+//     }
+// }
