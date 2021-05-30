@@ -8,6 +8,17 @@
         grid-template-columns: auto;
         gap: 20px;
     }
+    &__no_products {
+        hr {
+            margin: 0 0 30px;
+            height: 1px;
+            background-color: $darkColorWOpacity;
+            border: none;
+        }
+    }
+    .loader {
+        margin: 20px auto 0;
+    }
 }
 
 @media (min-width: $breakpointTablet) {
