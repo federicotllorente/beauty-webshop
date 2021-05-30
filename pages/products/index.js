@@ -6,8 +6,8 @@ import useHandleFilters from '../../hooks/useHandleFilters'
 import FiltersModal from '../../components/FiltersModal'
 import ProductCard from '../../components/ProductCard'
 
-const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
-// const productsAPI = 'http://localhost:3000/api/products'
+// const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
+const productsAPI = 'http://localhost:3000/api/products'
 const filtersAPI = 'http://localhost:3000/api/filters'
 
 const ProductList = () => {

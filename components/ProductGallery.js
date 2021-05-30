@@ -16,7 +16,7 @@ const ProductGallery = ({ imagesArray, productID, thumbnailURL }) => {
 				{imagesArray?.map((image, index) => (
 					<img
 						key={index}
-						src={image.imageURL}
+						src={image}
 						alt={`Product #${productID}, photo #${index}`}
 						onError={handleImageOnError}
 					/>
