@@ -9,6 +9,22 @@ const ProductCard = ({ product, elementRef }) => {
 		e.target.src = 'not_found.gif'
 	}
 
+	const ratingStars = rating => {
+		if (rating <= 1.9) return '⭐️'
+		if (rating <= 2.9) return '⭐️⭐️'
+		if (rating <= 3.9) return '⭐️⭐️⭐️'
+		if (rating <= 4.9) return '⭐️⭐️⭐️⭐️'
+		return '⭐️⭐️⭐️⭐️⭐️'
+	}
+
+	const generateRandomRating = () => {
+		const randomRating = Math.random() * 5
+		const decimalRound = Math.round(randomRating * 10) / 10
+		return decimalRound
+	}
+
+	const finalRating = product.rating || generateRandomRating()
+
 	return (
 		<Link href={`/products/${product.id}`}>
 			<a>
@@ -33,12 +49,10 @@ const ProductCard = ({ product, elementRef }) => {
 							)}
 						</div>
 						<p className="product_card__content__price">{product.price_sign} {product.price} {product.currency}</p>
-						{product.rating && (
-							<p>
-								{product.rating}
-								<span></span>
-							</p>
-						)}
+						<p className="rating">
+							{finalRating}
+							<span>{ratingStars(finalRating)}</span>
+						</p>
 					</div>
 				</div>
 			</a>

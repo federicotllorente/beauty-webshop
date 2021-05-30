@@ -14,10 +14,14 @@ const productsAPI = 'http://makeup-api.herokuapp.com/api/v1/products.json'
 const ProductList = () => {
 	const [currentPage, setCurrentPage] = useState(0)
 	const productsPerPage = 30
-
-	const { appliedFilters, handleFilterCheckbox } = useHandleFilters()
-	const elementRef = useRef()
 	const isTablet = useIsMobile(800)
+	const elementRef = useRef()
+
+	const {
+		appliedFilters,
+		handleTypeFilterInput,
+		handleBrandFilterInput
+	} = useHandleFilters()
 
 	const {
 		fetchProducts, products,
@@ -39,23 +43,12 @@ const ProductList = () => {
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac laoreet urna, a suscipit lacus. Ut quis nisl ex. Nunc condimentum arcu sem, at vehicula velit fringilla a.</p>
 				<FiltersModal
 					appliedFilters={appliedFilters}
-					handleFilterCheckbox={handleFilterCheckbox}
+					handleTypeFilterInput={handleTypeFilterInput}
+					handleBrandFilterInput={handleBrandFilterInput}
 					isTablet={isTablet}
 				/>
 				<div className="product_list__container">
 					{products?.slice(0, productsPerPage * currentPage).map((product, index, array) => {
-						if (appliedFilters.length >= 1 && appliedFilters.some(filter => filter.query_param_name === product.category)) {
-							return (
-								<ProductCard
-									key={product.id}
-									product={product}
-									elementRef={index == array.length - 1 ? elementRef : null}
-								/>
-							)
-						}
-						if (appliedFilters.length >= 1 && appliedFilters.some(filter => filter.query_param_name !== product.category)) {
-							return null
-						}
 						return (
 							<ProductCard
 								key={product.id}
@@ -64,12 +57,6 @@ const ProductList = () => {
 							/>
 						)
 					})}
-					{/* { && (
-						<>
-							<h2>There&apos;s no products to show</h2>
-							<p>Please try with other filters</p>
-						</>
-					)} */}
 				</div>
 			</main>
 	)

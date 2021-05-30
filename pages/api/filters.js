@@ -5,52 +5,62 @@ const filters = {
 		{
 			id: 1,
 			name: 'Blush',
-			query_param: 'product_type=blush'
+			query_param: 'product_type=blush',
+			query_param_name: 'blush'
 		},
 		{
 			id: 2,
 			name: 'Bronzer',
-			query_param: 'product_type=bronzer'
+			query_param: 'product_type=bronzer',
+			query_param_name: 'bronzer'
 		},
 		{
 			id: 3,
 			name: 'Eyebrow',
-			query_param: 'product_type=eyebrow'
+			query_param: 'product_type=eyebrow',
+			query_param_name: 'eyebrow'
 		},
 		{
 			id: 4,
 			name: 'Eyeliner',
-			query_param: 'product_type=eyeliner'
+			query_param: 'product_type=eyeliner',
+			query_param_name: 'eyeliner'
 		},
 		{
 			id: 5,
 			name: 'Eyeshadow',
-			query_param: 'product_type=eyeshadow'
+			query_param: 'product_type=eyeshadow',
+			query_param_name: 'eyeshadow'
 		},
 		{
 			id: 6,
 			name: 'Foundation',
-			query_param: 'product_type=foundation'
+			query_param: 'product_type=foundation',
+			query_param_name: 'foundation'
 		},
 		{
 			id: 7,
 			name: 'Lip liner',
-			query_param: 'product_type=lip_liner'
+			query_param: 'product_type=lip_liner',
+			query_param_name: 'lip_liner'
 		},
 		{
 			id: 8,
 			name: 'Lipstick',
-			query_param: 'product_type=lipstick'
+			query_param: 'product_type=lipstick',
+			query_param_name: 'lipstick'
 		},
 		{
 			id: 9,
 			name: 'Mascara',
-			query_param: 'product_type=mascara'
+			query_param: 'product_type=mascara',
+			query_param_name: 'mascara'
 		},
 		{
 			id: 10,
 			name: 'Nail polish',
-			query_param: 'product_type=nail_polish'
+			query_param: 'product_type=nail_polish',
+			query_param_name: 'nail_polish'
 		}
 	],
 	product_categories: [

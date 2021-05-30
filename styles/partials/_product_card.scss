@@ -43,5 +43,11 @@
             font-size: $mobileFontSize * 1.2;
             font-weight: 600;
         }
+        .rating {
+            padding: 10px 0 0;
+            span {
+                padding: 0 0 0 5px;
+            }
+        }
     }
 }

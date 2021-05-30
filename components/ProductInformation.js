@@ -40,7 +40,6 @@ const ProductInformation = ({ name, brand, rating, colorsArray, description, pri
 			<hr />
 			<div className="product_information__colors">
 				{colorsArray?.map((color, index) => {
-					// if (index == 0) handleChosenColor(color.colour_name)
 					return (
 						<span
 							key={index}
