@@ -18,6 +18,26 @@ const ProductList = ({ products }) => {
 		handleBrandFilterInput
 	} = useHandleFilters()
 
+	// const [currentPage, setCurrentPage] = useState(0)
+	// const productsPerPage = 30
+
+	// useEffect(() => {
+	// 	// if (products) {
+	// 	// }
+	// 	const onChange = entries => {
+	// 		const el = entries[0]
+	// 		console.log(el)
+	// 	}
+	// 	const observer = new IntersectionObserver(onChange, {
+	// 		rootMargin: '100px'
+	// 	})
+	// 	// observer.observe(elementRef.current)
+	// 	observer.observe(document.getElementById('patatatatat'))
+	// 	// return () => {
+	// 	// 	observer.unobserve(document.getElementById('patatatatat'))
+	// 	// }
+	// })
+
 	const [filteredProducts, setFilteredProducts] = useState([])
 
 	const filterByType = () => {

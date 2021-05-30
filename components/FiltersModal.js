@@ -23,63 +23,70 @@ const FiltersModal = ({ appliedFilters, handleTypeFilterInput, handleBrandFilter
 	errorFilters && <UnexpectedError error={errorFilters} />
 
 	return (
-		loadingFilters
-			? <Loader />
-			: <>
-				{(!isTablet || modalOpen) && (
-					<div className="filters_modal">
-						<div className="filters_modal__header">
-							<h2>Filters</h2>
-							{isTablet && (
-								<button onClick={() => setModalOpen(false)}>Close</button>
-							)}
-						</div>
-						<div className="filters_modal__applied_filters">
-							{appliedFilters?.type.name && (
-								<button onClick={handleTypeFilterInput}>
-									{appliedFilters?.type.name}
-								</button>
-							)}
-							{appliedFilters?.brand.name && (
-								<button onClick={handleBrandFilterInput}>
-									{appliedFilters?.brand.name}
-								</button>
-							)}
-						</div>
-						<div className="filters_modal__types">
-							<h3>Filter by product type</h3>
-							{filters?.product_types?.map(type => (
-								<button
-									key={type.id}
-									name={type.name}
-									id={type.query_param_name}
-									onClick={handleTypeFilterInput}
-								>
-									{type.name}
-								</button>
-							))}
-						</div>
-						<div className="filters_modal__brands">
-							<h3>Filter by brand</h3>
-							{filters?.product_brands?.map(brand => (
-								<button
-									key={brand.id}
-									name={brand.name}
-									id={brand.query_param_name}
-									onClick={handleBrandFilterInput}
-								>
-									{brand.name}
-								</button>
-							))}
-						</div>
+		<>
+			{(!isTablet || modalOpen) && (
+				<div className="filters_modal">
+					<div className="filters_modal__header">
+						<h2>Filters</h2>
+						{isTablet && (
+							<button onClick={() => setModalOpen(false)}>Close</button>
+						)}
 					</div>
-				)}
-				{isTablet && (
-					<button className="filters_modal_button" onClick={() => setModalOpen(true)}>
+					{loadingFilters
+						? <Loader />
+						: (
+							<>
+								<div className="filters_modal__applied_filters">
+									{appliedFilters?.type.name && (
+										<button onClick={handleTypeFilterInput}>
+											{appliedFilters?.type.name}
+										</button>
+									)}
+									{appliedFilters?.brand.name && (
+										<button onClick={handleBrandFilterInput}>
+											{appliedFilters?.brand.name}
+										</button>
+									)}
+								</div>
+								<div className="filters_modal__types">
+									<h3>Filter by product type</h3>
+									{filters?.product_types?.map(type => (
+										<button
+											key={type.id}
+											name={type.name}
+											id={type.query_param_name}
+											onClick={handleTypeFilterInput}
+										>
+											{type.name}
+										</button>
+									))}
+								</div>
+								<div className="filters_modal__brands">
+									<h3>Filter by brand</h3>
+									{filters?.product_brands?.map(brand => (
+										<button
+											key={brand.id}
+											name={brand.name}
+											id={brand.query_param_name}
+											onClick={handleBrandFilterInput}
+										>
+											{brand.name}
+										</button>
+									))}
+								</div>
+							</>
+						)
+					}
+				</div>
+			)}
+			{isTablet && (
+				loadingFilters
+					? <Loader />
+					: <button className="filters_modal_button" onClick={() => setModalOpen(true)}>
 						Filters
 					</button>
-				)}
-			</>
+			)}
+		</>
 	)
 }
 

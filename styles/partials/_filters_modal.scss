@@ -73,13 +73,20 @@
 @media (min-width: $breakpointTablet) {
     .filters_modal {
         width: 30vw;
+        height: 80vh;
         left: 20px;
-        top: 160px;
+        top: 120px;
     }
 }
 
 @media (min-width: $breakpointDesktopLarge) {
     .filters_modal {
         width: 20vw;
+    }
+}
+
+@media (min-width: $breakpointTablet) and (max-height: 720px) {
+    .filters_modal {
+        height: 75vh;
     }
 }
