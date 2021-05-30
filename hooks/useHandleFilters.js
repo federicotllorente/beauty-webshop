@@ -9,16 +9,19 @@ const useHandleFilters = () => {
 	}
 
 	const removeFilter = filterToRemove => {
-		const newAppliedFiltersList = appliedFilters.filter(filter => filter !== filterToRemove)
+		const newAppliedFiltersList = appliedFilters.filter(filter => filter.query_param_name !== filterToRemove)
 		setAppliedFilters(newAppliedFiltersList)
 	}
 
 	const handleFilterCheckbox = e => {
-		const appliedAlready = appliedFilters?.some(filter => filter === e.target.name)
+		const appliedAlready = appliedFilters?.some(filter => filter.query_param_name === e.target.id)
 		if (!appliedAlready) {
-			addFilter(e.target.name)
+			addFilter({
+				name: e.target.name,
+				query_param_name: e.target.id
+			})
 		} else {
-			removeFilter(e.target.name)
+			removeFilter(e.target.id)
 		}
 	}
 

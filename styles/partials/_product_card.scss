@@ -1,8 +1,9 @@
 .product_card {
+    height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: $lightColor;
     box-shadow: 0px 0px 20px $darkColorWOpacity;
@@ -10,32 +11,37 @@
         width: 100%;
         margin: 0 0 20px;
     }
-    h3 {
-        margin: 0 0 5px;
-        line-height: 1;
-        text-align: center;
-    }
-    &__colors {
-        padding: 15px 0;
+    &__content {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        span {
-            width: 30px;
-            height: 30px;
-            margin: 0 -10px 0 0;
-            border: 2px solid $lightColor;
-            border-radius: 9999px;
-            &:last-of-type {
-                margin: 0;
+        h3 {
+            margin: 0 0 5px;
+            line-height: 1;
+            text-align: center;
+        }
+        &__colors {
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                width: 30px;
+                height: 30px;
+                margin: 0 -10px 0 0;
+                border: 2px solid $lightColor;
+                border-radius: 9999px;
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+            p {
+                margin: 0 0 0 5px;
             }
         }
-        p {
-            margin: 0 0 0 5px;
+        &__price {
+            font-size: $mobileFontSize * 1.2;
+            font-weight: 600;
         }
-    }
-    &__price {
-        font-size: $mobileFontSize * 1.2;
-        font-weight: 600;
     }
 }

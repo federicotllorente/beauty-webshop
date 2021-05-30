@@ -28,10 +28,9 @@ $monospaceFontFamily: 'Fira Mono', monospace;
 // Breakpoints
 $breakpointMobile: 425px;
 $breakpointMobileLarge: 530px;
-// $breakpointTabletSmall: 640px;
 $breakpointTablet: 800px;
-// $breakpointTabletLarge: 920px;
 $breakpointDesktop: 1024px;
+$breakpointDesktopLarge: 1300px;
 
 // Mixins
 @import 'mixins/_buttons.scss';
