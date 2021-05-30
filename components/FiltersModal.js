@@ -1,13 +1,15 @@
-const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterCheckbox, filters }) => {
+const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterCheckbox, filters, isTablet }) => {
 	return (
 		<>
-			{modalOpen && (
+			{(!isTablet || modalOpen) && (
 				<div className="filters_modal">
 					<div>
 						<h3>Filters</h3>
-						<button onClick={() => setModalOpen(false)}>Close</button>
+						{isTablet && (
+							<button onClick={() => setModalOpen(false)}>Close</button>
+						)}
 					</div>
-					{filters?.product_categories.map(category => (
+					{filters?.product_categories?.map(category => (
 						<label key={category.id}>
 							<input
 								type="checkbox"
@@ -20,9 +22,11 @@ const FiltersModal = ({ modalOpen, setModalOpen, appliedFilters, handleFilterChe
 					{appliedFilters?.map(filter => <p key={filter}>{filter}</p>)}
 				</div>
 			)}
-			<button className="filters_modal_button" onClick={() => setModalOpen(true)}>
-				Filters
-			</button>
+			{isTablet && (
+				<button className="filters_modal_button" onClick={() => setModalOpen(true)}>
+					Filters
+				</button>
+			)}
 		</>
 	)
 }

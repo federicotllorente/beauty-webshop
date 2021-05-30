@@ -10,18 +10,19 @@
     }
 }
 
-@media (min-width: $breakpointMobile) {
+@media (min-width: $breakpointTablet) {
+    .product_list {
+        margin: 0 0 0 30vw;
+        padding-left: 40px;
+        // &__container {
+        //     grid-template-columns: auto auto auto;
+        // }
+    }
+}
+@media (min-width: $breakpointDesktop) {
     .product_list {
         &__container {
             grid-template-columns: auto auto;
         }
     }
 }
-
-// @media (min-width: $breakpointTablet) {
-//     .product_list {
-//         &__container {
-//             grid-template-columns: auto auto auto;
-//         }
-//     }
-// }

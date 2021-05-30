@@ -54,3 +54,16 @@
         font-size: $mainFontSize;
     }
 }
+
+@media (min-width: $breakpointTablet) {
+    .filters_modal {
+        width: 30vw;
+        // height: fit-content;
+        // max-height: 75vh;
+        // margin: 30px 20px 0 0;
+        // position: sticky;
+        left: 20px;
+        top: 160px;
+        // z-index: 1;
+    }
+}
