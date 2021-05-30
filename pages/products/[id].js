@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import useIsMobile from '../../hooks/useIsMobile'
 
+import Header from '../../components/Header'
 import ProductGallery from '../../components/ProductGallery'
 import ProductInformation from '../../components/ProductInformation'
 
@@ -167,6 +169,9 @@ const ProductDetails = (props) => {
 	// 	]
 	// }
 
+	const isMobile = useIsMobile(425)
+	const isTablet = useIsMobile(800)
+
 	const [imagesArray, setImagesArray] = useState([])
 
 	const generateImagesArray = (image, maxQuantity) => {
@@ -193,34 +198,40 @@ const ProductDetails = (props) => {
 	const finalRating = props.rating || generateRandomRating()
 
 	return (
-		<main className="product_details">
-			<Link href="/products">
-				<a>
-					<span>⬅️</span>Back to products
-				</a>
-			</Link>
-			<div className="product_details__main">
-				<ProductGallery
-					imagesArray={imagesArray}
-					productID={props.id}
-					thumbnailURL={props.api_featured_image}
-				/>
-				<ProductInformation
-					name={props.name}
-					brand={props.brand}
-					rating={finalRating}
-					colorsArray={props.product_colors}
-					description={props.description}
-					price={`${props.price_sign} ${props.price} ${props.currency}`}
-				/>
-			</div>
-			<div className="product_details__more_information">
-				<h2>Description</h2>
-				<p>{props.description}</p>
-				<h2>Additional information</h2>
-				<p>{props.description}</p>
-			</div>
-		</main>
+		<>
+			<Header
+				isMobile={isMobile}
+				isTablet={isTablet}
+			/>
+			<main className="product_details">
+				<Link href="/products">
+					<a>
+						<span>⬅️</span>Back to products
+					</a>
+				</Link>
+				<div className="product_details__main">
+					<ProductGallery
+						imagesArray={imagesArray}
+						productID={props.id}
+						thumbnailURL={props.api_featured_image}
+					/>
+					<ProductInformation
+						name={props.name}
+						brand={props.brand}
+						rating={finalRating}
+						colorsArray={props.product_colors}
+						description={props.description}
+						price={`${props.price_sign} ${props.price} ${props.currency}`}
+					/>
+				</div>
+				<div className="product_details__more_information">
+					<h2>Description</h2>
+					<p>{props.description}</p>
+					<h2>Additional information</h2>
+					<p>{props.description}</p>
+				</div>
+			</main>
+		</>
 	)
 }
 

@@ -4,7 +4,6 @@ import useIsMobile from '../hooks/useIsMobile'
 import CustomHead from '../components/CustomHead'
 import BurgerMenuButton from '../components/BurgerMenuButton'
 import BurgerMenu from '../components/BurgerMenu'
-import Header from '../components/Header'
 
 import '../styles/main.scss'
 
@@ -28,7 +27,6 @@ const MyApp = ({ Component, pageProps }) => {
 					/>
 				</>
 			)}
-			<Header />
 			<Component {...pageProps} />
 		</>
 	)

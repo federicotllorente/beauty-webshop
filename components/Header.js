@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import useIsMobile from '../hooks/useIsMobile'
 
 import SearchBar from './SearchBar'
 
@@ -8,9 +7,7 @@ import Logo from './icons/Logo'
 import ProfileIcon from './icons/ProfileIcon'
 import CartIcon from './icons/CartIcon'
 
-const Header = () => {
-	const isMobile = useIsMobile(425)
-	const isTablet = useIsMobile(800)
+const Header = ({ setSearchQuery, isMobile, isTablet }) => {
 	const router = useRouter()
 
 	return (
@@ -20,7 +17,10 @@ const Header = () => {
 					<a><Logo className="header__main__logo" /></a>
 				</Link>
 				{(!isTablet && router.pathname === '/products') && (
-					<SearchBar isMobile={isMobile} />
+					<SearchBar
+						setSearchQuery={setSearchQuery}
+						isMobile={isMobile}
+					/>
 				)}
 				{!isMobile && (
 					<div className="header__main__buttons">
@@ -39,7 +39,10 @@ const Header = () => {
 					</div>
 				)}
 				{(isTablet && router.pathname === '/products') && (
-					<SearchBar isMobile={isMobile} />
+					<SearchBar
+						setSearchQuery={setSearchQuery}
+						isMobile={isMobile}
+					/>
 				)}
 			</div>
 		</header>
