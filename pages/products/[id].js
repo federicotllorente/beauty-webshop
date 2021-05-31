@@ -26,7 +26,7 @@ const ProductDetails = ({ product }) => {
 	}
 
 	useEffect(() => {
-		const newImagesArray = generateImagesArray(product.api_featured_image, 10)
+		const newImagesArray = generateImagesArray(product?.api_featured_image, 10)
 		setImagesArray(newImagesArray)
 	}, [])
 
@@ -36,7 +36,7 @@ const ProductDetails = ({ product }) => {
 		return decimalRound
 	}
 
-	const finalRating = product.rating || generateRandomRating()
+	const finalRating = product?.rating || generateRandomRating()
 
 	return (
 		router.isFallback
@@ -46,34 +46,36 @@ const ProductDetails = ({ product }) => {
 					isMobile={isMobile}
 					isTablet={isTablet}
 				/>
-				<main className="product_details">
-					<Link href="/products">
-						<a>
-							<span>⬅️</span>Back to products
-						</a>
-					</Link>
-					<div className="product_details__main">
-						<ProductGallery
-							imagesArray={imagesArray}
-							productID={product.id}
-							thumbnailURL={product.api_featured_image}
-						/>
-						<ProductInformation
-							name={product.name}
-							brand={product.brand}
-							rating={finalRating}
-							colorsArray={product.product_colors}
-							description={product.description}
-							price={`${product.price_sign} ${product.price} ${product.currency}`}
-						/>
-					</div>
-					<div className="product_details__more_information">
-						<h2>Description</h2>
-						<p>{product.description}</p>
-						<h2>Additional information</h2>
-						<p>{product.description}</p>
-					</div>
-				</main>
+				{product && (
+					<main className="product_details">
+						<Link href="/products">
+							<a>
+								<span>⬅️</span>Back to products
+							</a>
+						</Link>
+						<div className="product_details__main">
+							<ProductGallery
+								imagesArray={imagesArray}
+								productID={product.id}
+								thumbnailURL={product.api_featured_image}
+							/>
+							<ProductInformation
+								name={product.name}
+								brand={product.brand}
+								rating={finalRating}
+								colorsArray={product.product_colors}
+								description={product.description}
+								price={`${product.price_sign} ${product.price} ${product.currency}`}
+							/>
+						</div>
+						<div className="product_details__more_information">
+							<h2>Description</h2>
+							<p>{product.description}</p>
+							<h2>Additional information</h2>
+							<p>{product.description}</p>
+						</div>
+					</main>
+				)}
 			</>
 	)
 }
