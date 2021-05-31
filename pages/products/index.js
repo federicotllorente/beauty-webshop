@@ -17,7 +17,9 @@ const ProductList = ({ products }) => {
 	const {
 		appliedFilters,
 		handleTypeFilterInput,
-		handleBrandFilterInput
+		handleBrandFilterInput,
+		handlePriceFilterForm,
+		clearPriceFilters
 	} = useHandleFilters()
 
 	const {
@@ -61,12 +63,16 @@ const ProductList = ({ products }) => {
 					appliedFilters={appliedFilters}
 					handleTypeFilterInput={handleTypeFilterInput}
 					handleBrandFilterInput={handleBrandFilterInput}
+					handlePriceFilterForm={handlePriceFilterForm}
+					clearPriceFilters={clearPriceFilters}
 					isTablet={isTablet}
 				/>
 				<div className="product_list__container">
 					{!filterSelected && !searchQuery
 						? printProducts(products)
-						: printProducts(filteredProducts)
+						: filterSelected && !searchQuery
+							? printProducts(filteredProducts)
+							: null
 					}
 					{(searchQuery && searchResult) && printProducts(searchResult)}
 				</div>
