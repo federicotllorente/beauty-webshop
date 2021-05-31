@@ -4,7 +4,7 @@ import useFetchFilters from '../hooks/useFetchFilters'
 import { UnexpectedError } from './ErrorMessages'
 import { Loader } from './Loader'
 
-const filtersAPI = 'http://localhost:3000/api/filters'
+const filtersAPI = 'https://beauty-webshop.vercel.app/api/filters'
 
 const FiltersModal = ({ appliedFilters, handleTypeFilterInput, handleBrandFilterInput, handlePriceFilterForm, clearPriceFilters, isTablet }) => {
 	const [modalOpen, setModalOpen] = useState(false)
