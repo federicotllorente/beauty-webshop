@@ -6,7 +6,7 @@ import { Loader } from './Loader'
 
 const filtersAPI = 'http://localhost:3000/api/filters'
 
-const FiltersModal = ({ appliedFilters, handleTypeFilterInput, handleBrandFilterInput, isTablet }) => {
+const FiltersModal = ({ appliedFilters, handleTypeFilterInput, handleBrandFilterInput, handlePriceFilterForm, clearPriceFilters, isTablet }) => {
 	const [modalOpen, setModalOpen] = useState(false)
 
 	const {
@@ -47,6 +47,32 @@ const FiltersModal = ({ appliedFilters, handleTypeFilterInput, handleBrandFilter
 											{appliedFilters?.brand.name}
 										</button>
 									)}
+								</div>
+								<div className="filters_modal__price">
+									<h3>Filter by price</h3>
+									<form onSubmit={handlePriceFilterForm}>
+										<input
+											type="number"
+											name="min_price"
+											min="0"
+											placeholder="Min"
+										/>
+										<input
+											type="number"
+											name="max_price"
+											min="0"
+											placeholder="Max"
+										/>
+										<button>Filter</button>
+										{(appliedFilters?.price.min || appliedFilters?.price.max) && (
+											<button
+												className="clear_button"
+												onClick={clearPriceFilters}
+											>
+												Clear price filters
+											</button>
+										)}
+									</form>
 								</div>
 								<div className="filters_modal__types">
 									<h3>Filter by product type</h3>
